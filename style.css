@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'prod-sans-reg';
+  src: url(Product-Sans-Regular.ttf);
+}
+@font-face {
+  font-family: 'prod-sans-bold';
+  src: url(Product-Sans-Bold.ttf);
+}
+@font-face {
+  font-family: 'knockout';
+  src: url(Knockout-HTF90-UltmtWelterwt.otf);
+}
+@font-face {
+  font-family: 'noe-reg';
+  src: url(noe-display-regular.ttf);
+}
+@font-face {
+  font-family: 'noe-bold-italic';
+  src: url(noe-display-bold-italic.ttf);
+}
+
+
+
+
+
+
+body {
+  margin: 0;
+}
+
+
+header {
+  background-color: white;
+  box-sizing: border-box;
+  padding-bottom: 1.1rem;
+  box-shadow: 0 3px 9px 0 rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+}
+#title-text {
+  font-family: 'prod-sans-reg';
+  font-size: 1.2em;
+  display: inline-block;
+  vertical-align: super;
+  margin-left: 1rem;
+}
+li {
+  font-family: Roboto;
+  font-weight: 500;
+  list-style-type: none;
+  text-align: center;
+}
+ul {
+  display: inline;
+  font-size: 0.8em;
+}
+
+
+#categories {
+  box-sizing: border-box;
+  margin-top: 6rem;
+  padding-top: 0.8rem;
+  padding-bottom: 1.4rem;
+  /* margin-left: 1.5rem; */
+  width: 32rem;
+  margin: auto;
+  margin-top: 5rem;
+  border-top: 3px solid black;
+  border-bottom: 1px solid black;
+}
+.cat {
+  font-family: prod-sans-bold;
+  box-sizing: border-box;
+  padding: 5px 13px;
+  border-radius: 2px;
+  font-size: 0.8em;
+  color: black;
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+.society {
+  /*background-color: rgb(148, 198, 115);*/
+}
+.politics {
+  /*background-color: #000;*/
+}
+.fashion {
+  /*background-color: rgba(29, 46, 99, 0.75)*/
+}
+.tech {
+  /*background-color: rgb(36, 81, 184);*/
+}
+.sports {
+  /*background-color: rgb(255, 224, 0)*/
+}
+.ent {
+  /*background-color: #ff1d45;*/
+}
+
+#content-area {
+  width: 96%;
+  margin: auto;
+}
