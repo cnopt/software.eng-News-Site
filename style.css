@@ -60,11 +60,12 @@ ul {
   padding-top: 0.8rem;
   padding-bottom: 1.4rem;
   /* margin-left: 1.5rem; */
-  width: 32rem;
+  width: 40rem;
   margin: auto;
-  margin-top: 5rem;
+  margin-top: 4.5rem;
   border-top: 3px solid black;
   border-bottom: 1px solid black;
+  text-align: center;
 }
 .cat {
   font-family: prod-sans-bold;
