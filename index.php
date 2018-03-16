@@ -26,7 +26,7 @@
           </li>
     </header>
 
-
+  <section id="bg">
     <section id="in-the-news">
       <p id="itn-title">In the News</p>
       <p class="itn">Russia probe</p>
@@ -36,6 +36,7 @@
       <p class="itn">Brain Space</p>
       <p class="itn">March Madness</p>
     </section>
+  </section>
 
 
     <div id="content-area">
@@ -50,7 +51,7 @@
           $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
           $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-          $sql = "SELECT articleTitle, articleSub, articleCat, articleDate, articleAuth
+          $sql = "SELECT articleTitle, articleSub, articleCat, articleBody, articleDate, articleAuth
                   FROM articles";
 
                   $queryResult = $dbh->prepare($sql);
@@ -64,6 +65,7 @@
                     // $eTitle = (strlen($eTitle) > 60) ? substr($eTitle,0,58).'..' : $eTitle; // cut off titles that are extremely long
                     $eSubtitle = $rowObj->articleSub;
                     $eCategory = $rowObj->articleCat;
+                    $eBody = $rowObj->articleBody;
                     $eDate = $rowObj->articleDate;
                     $eAuth = $rowObj->articleAuth;
 
@@ -71,6 +73,7 @@
                                <span class='articleCategory'>$eCategory</span>
                                <span class='articleTitle'>$eTitle</span>
                                <span class='articleSubtitle'>$eSubtitle</span>
+                               <span class='articleBody'>$eBody</span>
                                <span class='articleDate'>$eDate</span>
                                <span class='articleAuthor'>$eAuth</span>
                      </div>";
