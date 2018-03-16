@@ -38,8 +38,7 @@
     </section>
   </section>
 
-
-    <div id="content-area">
+      <div id="main-article-area">
 
       <?php
           // should have this in seperate functions.php
@@ -51,14 +50,56 @@
           $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
           $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-          $sql = "SELECT articleTitle, articleSub, articleCat, articleBody, articleDate, articleAuth
-                  FROM articles";
+          $mainStorySQL= "SELECT articleTitle, articleSub, articleCat, articleBody, articleDate, articleAuth
+                          FROM articles
+                          ORDER BY articleDate DESC
+                          LIMIT 1";
 
-                  $queryResult = $dbh->prepare($sql);
+                  $queryResult = $dbh->prepare($mainStorySQL);
                   $queryResult->execute();
 
-          if ($dbh->query($sql)) {
+          if ($dbh->query($mainStorySQL)) {
 
+                    while ($rowObj = $queryResult->fetchObject()) {
+
+                    $eTitle = $rowObj->articleTitle;
+                    $eSubtitle = $rowObj->articleSub;
+                    $eCategory = $rowObj->articleCat;
+                    $eBody = $rowObj->articleBody;
+                    $eDate = $rowObj->articleDate;
+                    $eAuth = $rowObj->articleAuth;
+
+                     echo "<div class='mainArticle'>
+                             <div id='main-article-left'>
+                               <span class='articleCategory'>$eCategory</span>
+                               <span class='mainArticleTitle'>$eTitle</span>
+                               <span class='mainArticleSubtitle'>$eSubtitle</span>
+                             </div>
+                             <div id='main-article-right'>
+                               <span class='mainArticleBody'>$eBody</span>
+                               <span class='mainArticleDate'>$eDate</span>
+                               <span class='articleAuthor'>$eAuth</span>
+                             </div>
+                     </div>";
+                    }
+          } ?>
+
+        </div>
+
+          <div id="top-three-area">
+
+
+          <?php
+
+          $topThreeSQL = "SELECT articleTitle, articleSub, articleCat, articleBody, articleDate, articleAuth
+                  FROM articles
+                  ORDER BY articleDate DESC
+                  LIMIT 1,3";
+
+                  $queryResult = $dbh->prepare($topThreeSQL);
+                  $queryResult->execute();
+
+          if ($dbh->query($topThreeSQL)) {
                     while ($rowObj = $queryResult->fetchObject()) {
 
                     $eTitle = $rowObj->articleTitle;
@@ -68,6 +109,7 @@
                     $eBody = $rowObj->articleBody;
                     $eDate = $rowObj->articleDate;
                     $eAuth = $rowObj->articleAuth;
+
 
                      echo "<div class='article'>
                                <span class='articleCategory'>$eCategory</span>
