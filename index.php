@@ -15,7 +15,7 @@
 
     <header>
           <svg width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
-          <p id="title-text"><strong>Idiot</strong> News & Articles</p>
+          <p id="title-text"><strong>Halibut</strong> News & Articles</p>
           <li>
             <ul>Politics</ul>
             <ul>Society</ul>
@@ -78,7 +78,7 @@
                              <div id='main-article-right'>
                                <span class='mainArticleBody'>$eBody</span>
                                <span class='mainArticleDate'>$eDate</span>
-                               <span class='articleAuthor'>$eAuth</span>
+                               <span class='mainArticleAuthor'>$eAuth</span>
                              </div>
                      </div>";
                     }
@@ -88,13 +88,12 @@
 
           <div id="top-three-area">
 
-
           <?php
 
           $topThreeSQL = "SELECT articleTitle, articleSub, articleCat, articleBody, articleDate, articleAuth
                   FROM articles
                   ORDER BY articleDate DESC
-                  LIMIT 1,3";
+                  LIMIT 1,4";
 
                   $queryResult = $dbh->prepare($topThreeSQL);
                   $queryResult->execute();
@@ -111,13 +110,13 @@
                     $eAuth = $rowObj->articleAuth;
 
 
-                     echo "<div class='article'>
-                               <span class='articleCategory'>$eCategory</span>
-                               <span class='articleTitle'>$eTitle</span>
-                               <span class='articleSubtitle'>$eSubtitle</span>
-                               <span class='articleBody'>$eBody</span>
-                               <span class='articleDate'>$eDate</span>
-                               <span class='articleAuthor'>$eAuth</span>
+                     echo "<div class='topThreeArticle'>
+                               <span class='topThreeArticleCategory'>$eCategory</span>
+                               <span class='topThreeArticleTitle'>$eTitle</span>
+                               <span class='topThreeArticleSubtitle'>$eSubtitle</span>
+                               <span class='topThreeArticleBody'>$eBody</span>
+                               <span class='topThreeArticleDate'>$eDate</span>
+                               <span class='topThreeArticleAuthor'>$eAuth</span>
                      </div>";
                     }
           }
@@ -131,6 +130,12 @@
       ?>
 
 
+    </div>
+
+
+
+    <div id="more-stories-area">
+        <div id="more-stories-title">More top stories</div>
     </div>
 
 

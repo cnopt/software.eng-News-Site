@@ -67,7 +67,7 @@ ul {
 }
 
 #bg {
-  background-color: #cfdfd7b0;
+  background-color: #cfdfd78a;
   padding-top: 4.5rem;
   position: relative;
   z-index: -1;
@@ -141,6 +141,7 @@ ul {
   padding-top: 1.5rem;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 #main-article-left {
@@ -172,6 +173,7 @@ ul {
   font-size: 1.6em;
   display: block;
   text-transform: capitalize;
+  margin-top: 0.4rem;
 }
 .mainArticleBody {
   font-family: prod-sans-reg;
@@ -183,9 +185,16 @@ ul {
   font-size: 0.8em;
   font-family: prod-sans-reg;
   display: inline-block;
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
 }
-.article {
+.mainArticleAuthor {
+  margin-left: 1.5rem;
+  font-size: 0.8em;
+  display: inline-block;
+  font-family: prod-sans-reg;
+  text-transform: capitalize;
+}
+.topThreeArticle {
   display: block;
   margin-bottom: 2rem;
   -webkit-font-smoothing: antialiased;
@@ -194,7 +203,7 @@ ul {
   border-right: 1px solid #e0e0e0;
   padding-right: 1.5em;
 }
-.articleCategory {
+.topThreeArticleCategory {
   font-family: knockout;
   font-size: 0.9em;
   display: inline-block;
@@ -203,39 +212,78 @@ ul {
   border: 1px solid black;
   text-transform: uppercase;
 }
-.articleTitle {
+.topThreeArticleTitle {
   font-family: noe-bold;
   font-size: 1.7em;
   display: block;
   text-transform: capitalize;
   line-height: 1.3;
 }
-.articleSubtitle {
+.topThreeArticleSubtitle {
   font-family: noe-reg-italic;
   font-size: 1.3em;
   display: block;
   text-transform: capitalize;
 }
-.articleBody {
+.topThreeArticleBody {
   display: block;
   margin-top: 1.2rem;
   font-size: 0.9em;
   font-family: prod-sans-reg;
   line-height: 1.35;
 }
-.articleDate {
+.topThreeArticleDate {
   margin-top: 1.5rem;
   font-size: 0.8em;
   font-family: prod-sans-reg;
   display: inline-block;
 }
-.articleAuthor {
+.topThreeArticleAuthor {
   margin-left: 1.5rem;
   font-size: 0.8em;
   display: inline-block;
   font-family: prod-sans-reg;
   text-transform: capitalize;
 }
+.topThreeArticle:nth-child(4) {
+  display: none;
+}
+
+
+
+#more-stories-area {
+  width: 65%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+#more-stories-title {
+  display: inline-block;
+  font-family: prod-sans-reg;
+  font-size: 0.9em;
+  border-top: 3px solid #87a094;
+  border-bottom: 3px solid #87a094;
+  box-sizing: border-box;
+  padding-top:7px;
+  padding-bottom: 7px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -260,8 +308,114 @@ ul {
   #top-three-area {
     width: 77%
   }
-  .article {
+  .topThreeArticle {
     width: 20rem;
-    padding-right: 2.8rem;
+    padding-right: 2.6rem;
+  }
+  #more-stories-area {
+    width: 77%;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .topThreeArticle {
+    width: 18.5rem;
+    padding-right: 1.8rem;
+  }
+  .topThreeArticleTitle {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width:1400px) {
+  #main-article-area {
+    width: 85%;
+  }
+  #top-three-area {
+    width: 85%;
+  }
+  #more-stories-area {
+    width: 85%;
+  }
+  #main-article-left {
+    width: 28.5rem;
+  }
+  #main-article-right {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .topThreeArticle {
+    width: 17.3rem;
+    padding-right: 1.15rem;
+  }
+  .topThreeArticleTitle {
+    font-size: 1.2em;
+  }
+  .topThreeArticleSubtitle {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width:1120px) {
+  #top-three-area {
+    display: block;
+  }
+  .topThreeArticle {
+    width: 44%;
+    display: inline-block;
+    padding-right: 2%;
+  }
+  .topThreeArticle:nth-child(even) {
+    padding-left: 4%;
+    border-right: none;
+  }
+  .topThreeArticle:nth-child(4) {
+    display: inline-block;
+  }
+  #main-article-right {
+    width: 30%;
+  }
+  .mainArticleAuthor {
+    display: block;
+    margin-left: 0;
+    margin-top: 0.35rem;
+  }
+}
+
+
+@media screen and (max-width: 980px) {
+  .topThreeArticleBody {
+    margin-top: 0.95rem;
+  }
+  .topThreeArticleDate {
+    opacity: 0.6;
+    margin-top: 1rem;
+    font-size: 0.7em;
+  }
+  .topThreeArticleAuthor {
+    opacity: 0.6;
+    margin-left: 0.9rem;
+    font-size: 0.7em;
+  }
+}
+
+
+@media screen and (max-width:850px) {
+  #main-article-area {
+    width: 87%;
+  }
+  #top-three-area {
+    width: 87%;
+  }
+  #more-stories-area {
+    width: 87%;
+  }
+  .topThreeArticle:nth-child(odd) {
+    padding-right: 4.5%;
+  }
+  .topThreeArticle:nth-child(even) {
+    padding-left: 4.7%;
   }
 }
