@@ -9,12 +9,24 @@
   <meta name="keywords" content="keywords,here">
   <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js" type="text/javascript"></script>
   <link rel="stylesheet" href="style.css" type="text/css">
   </head>
   <body>
 
     <header>
-          <svg width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
+          <div id="sideNav">
+            <a href="javascript:void(0)" class="closebtn" onclick="hideNav()">&times;</a>
+            <a href="#">Politics</a>
+            <a href="#">Society</a>
+            <a href="#">Technology</a>
+            <a href="#">Fashion</a>
+            <a href="#">Entertainment</a>
+            <a href="#">Sport</a>
+          </div>
+
+          <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
           <p id="title-text"><strong>Halibut</strong> News & Articles</p>
           <li>
             <ul>Politics</ul>
@@ -111,7 +123,7 @@
 
 
                      echo "<div class='topThreeArticle'>
-                               <span class='topThreeArticleCategory'>$eCategory</span>
+                               <span class='articleCategory'>$eCategory</span>
                                <span class='topThreeArticleTitle'>$eTitle</span>
                                <span class='topThreeArticleSubtitle'>$eSubtitle</span>
                                <span class='topThreeArticleBody'>$eBody</span>
