@@ -61,14 +61,24 @@ header {
 }
 #sideNav a {
   display: block;
-  font-family: prod-sans-bold;
+  font-family: prod-sans-reg;
   font-size: 1.1em;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  padding-left: 1.6rem;
+  padding-left: 1.7rem;
   border-top: 1px solid rgba(0,0,0,0.04);
-  color: black;
+  color: #111;
   text-decoration: none;
+}
+.material-icons {
+  font-size: 1em;
+  vertical-align: middle;
+  padding-right: 1.25rem;
+}
+.closebtn {
+  font-size: 1.9em !important;
+  font-family: prod-sans-bold !important;
+  color: #4f4f4f !important;
 }
 #title-text {
   font-family: 'prod-sans-reg';
