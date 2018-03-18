@@ -127,6 +127,7 @@ function getMoreTopStoriesSQL() {
 
 
              echo "<div class='moreTopArticle'>
+                       <img src='http://via.placeholder.com/500x500' class='moreTopImg'>
                        <span class='articleCategory'>$eCategory</span>
                        <span class='moreTopArticleTitle'>$eTitle</span>
                        <span class='moreTopArticleBody'>$eBody</span>
