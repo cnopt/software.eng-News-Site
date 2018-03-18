@@ -73,6 +73,21 @@ header {
   color: #111;
   text-decoration: none;
 }
+#sideNavSearchBar {
+  font-family: prod-sans-reg;
+  font-size: 1em;
+  background: #e0e0e094 url(ic_search_black_24px.svg) no-repeat scroll 25px 17px;
+  background-size: 21px;
+  color: rgba(0,0,0,0.4);
+  padding: 18px;
+  padding-left: 3.5rem;
+  border: none;
+  outline: none;
+  margin-top: 1.3rem;
+  margin-bottom: 1.5rem;
+
+  display: none;
+}
 .material-icons {
   font-size: 1em;
   vertical-align: middle;
@@ -90,7 +105,7 @@ header {
   vertical-align: super;
   margin-left: 1rem;
 }
-#searchBar {
+#headerSearchBar {
   display: block;
   border: none;
   outline: none;
@@ -160,7 +175,6 @@ ul {
   margin: 0;
   margin-bottom: 10px;
   margin-right: 4px;
-  /* border: 1px solid rgba(0,0,0,0.7); */
 }
 
 #main-article-area {
@@ -446,6 +460,12 @@ ul {
   }
   header li {
     display: none;
+  }
+  #headerSearchBar {
+    display: none;
+  }
+  #sideNavSearchBar {
+    display: block;
   }
   #bg {
     padding-top: 3.4rem;

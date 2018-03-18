@@ -19,6 +19,7 @@
     <header>
           <div id="sideNav">
             <a href="javascript:void(0)" class="closebtn" onclick="hideNav()">&times;</a>
+            <input type="text" id="sideNavSearchBar" placeholder="Search..">
             <a href="#"><i class="material-icons">&#xE84F;</i> Politics</a>
             <a href="#"><i class="material-icons">&#xE84E;</i> Society</a>
             <a href="#"><i class="material-icons">&#xE1E0;</i> Technology</a>
@@ -30,7 +31,7 @@
           <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem;cursor:pointer;"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
           <p id="title-text"><strong>Halibut</strong> News & Articles</p>
 
-          <input type="text" id="searchBar" placeholder="Search..">
+          <input type="text" id="headerSearchBar" placeholder="Search..">
 
           <li>
             <ul>Politics</ul>
