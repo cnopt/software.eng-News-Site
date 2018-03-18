@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>title</title>
-  <meta name="author" content="name">
+  <meta name="Charlie Biddiscombe" content="name">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
   <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
@@ -27,8 +27,11 @@
             <a href="#"><i class="material-icons">&#xEB45;</i> Sport</a>
           </div>
 
-          <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
+          <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem;cursor:pointer;"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
           <p id="title-text"><strong>Halibut</strong> News & Articles</p>
+
+          <input type="text" id="searchBar" placeholder="Search..">
+
           <li>
             <ul>Politics</ul>
             <ul>Society</ul>

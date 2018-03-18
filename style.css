@@ -32,7 +32,10 @@
 }
 
 
-
+/* just to see effects of media queries more smoothly lol */
+* {
+  transition: 0.55s;
+}
 
 
 
@@ -87,6 +90,25 @@ header {
   vertical-align: super;
   margin-left: 1rem;
 }
+#searchBar {
+  display: block;
+  border: none;
+  outline: none;
+  width: 290px;
+  background: url(ic_search_black_24px.svg) no-repeat scroll 10px 7px;
+  background-size: 18px;
+  font-family: prod-sans-reg;
+  font-size: 0.9em;
+  margin: auto;
+  margin-top: -2.7rem;
+  margin-bottom: 1rem;
+  background-color: #e0e0e094;
+  box-sizing: border-box;
+  padding: 7px;
+  padding-left: 40px;
+  border-radius: 30px;
+  color: rgba(0,0,0,0.4);
+}
 li {
   font-family: Roboto;
   font-weight: 500;
@@ -140,24 +162,6 @@ ul {
   margin-right: 4px;
   /* border: 1px solid rgba(0,0,0,0.7); */
 }
-.society {
-  /*background-color: rgb(148, 198, 115);*/
-}
-.politics {
-  /*background-color: #000;*/
-}
-.fashion {
-  /*background-color: rgba(29, 46, 99, 0.75)*/
-}
-.tech {
-  /*background-color: rgb(36, 81, 184);*/
-}
-.sports {
-  /*background-color: rgb(255, 224, 0)*/
-}
-.ent {
-  /*background-color: #ff1d45;*/
-}
 
 #main-article-area {
   width: 65%;
@@ -175,6 +179,7 @@ ul {
   display: flex;
   justify-content: space-between;
   position: relative;
+  z-index: -1;
 }
 
 #main-article-left {
@@ -442,6 +447,12 @@ ul {
   header li {
     display: none;
   }
+  #bg {
+    padding-top: 3.4rem;
+  }
+  #in-the-news {
+    padding-bottom: 1rem;
+  }
   #main-article-area {
     width: 87%;
   }
@@ -480,5 +491,43 @@ ul {
   }
   .topThreeArticleBody {
     margin-top: 0.6rem;
+  }
+}
+
+
+
+@media screen and (max-width: 750px) {
+  header {
+    position: fixed;
+    width: 100%;
+  }
+  #bg {
+    padding-top: 6.4rem;
+  }
+  #in-the-news {
+    width: 24rem;
+    display: block;
+    padding-bottom: 0.75rem;
+  }
+  #itn-title {
+    font-size: 0.9em;
+    top:-37px;
+  }
+  .itn {
+    padding: 4px 12px;
+  }
+}
+
+
+@media screen and (max-width:480px) {
+  #bg {
+    padding-top: 6.25rem;
+  }
+  #in-the-news {
+    width: 19.6rem;
+  }
+  .itn {
+    font-size: 0.8em;
+    padding: 3px 11px;
   }
 }
