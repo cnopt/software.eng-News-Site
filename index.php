@@ -55,25 +55,28 @@
     </section>
   </section>
 
-      <div id="main-article-area">
-          <?php
-            require_once 'functions.php';
-            getMainStorySQL();
-          ?>
-      </div>
+  <div id="main-article-area">
+      <?php
+        require_once 'functions.php';
+        getMainStorySQL();
+      ?>
+  </div>
 
 
-      <div id="top-three-area">
-          <?php
-            getTopThreeStoriesSQL();
-          ?>
-      </div>
+  <div id="top-three-area">
+      <?php
+        getTopThreeStoriesSQL();
+      ?>
+  </div>
 
 
 
-    <div id="more-stories-area">
-        <div id="more-stories-title">More top stories</div>
-    </div>
+  <div id="more-stories-area">
+      <div id="more-stories-title">More top stories</div>
+      <?php
+        getMoreTopStoriesSQL();
+      ?>
+  </div>
 
 
 

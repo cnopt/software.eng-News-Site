@@ -51,6 +51,8 @@ function getMainStorySQL() {
 }
 
 
+
+
 function getTopThreeStoriesSQL() {
 
   $hostname='localhost';
@@ -92,6 +94,52 @@ function getTopThreeStoriesSQL() {
 
   $dbh = null;
 }
+
+
+
+
+function getMoreTopStoriesSQL() {
+
+  $hostname='localhost';
+  $username='unn_w15002812';
+  $password='RYNUZTYA';
+  $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $moreTopSQL = "SELECT articleTitle, articleSub, articleCat, articleBody, articleDate, articleAuth
+          FROM articles
+          ORDER BY articleDate DESC
+          LIMIT 1,4";
+
+          $queryResult = $dbh->prepare($moreTopSQL);
+          $queryResult->execute();
+
+  if ($dbh->query($moreTopSQL)) {
+            while ($rowObj = $queryResult->fetchObject()) {
+
+            $eTitle = $rowObj->articleTitle;
+            // $eTitle = (strlen($eTitle) > 60) ? substr($eTitle,0,58).'..' : $eTitle; // cut off titles that are extremely long
+            $eSubtitle = $rowObj->articleSub;
+            $eCategory = $rowObj->articleCat;
+            $eBody = $rowObj->articleBody;
+            $eDate = $rowObj->articleDate;
+            $eAuth = $rowObj->articleAuth;
+
+
+             echo "<div class='moreTopArticle'>
+                       <span class='articleCategory'>$eCategory</span>
+                       <span class='moreTopArticleTitle'>$eTitle</span>
+                       <span class='moreTopArticleBody'>$eBody</span>
+                       <span class='moreTopArticleDate'>$eDate</span>
+                       <span class='moreTopArticleAuthor'>$eAuth</span>
+             </div>";
+            }
+  }
+
+  $dbh = null;
+}
+
+
 
 
 

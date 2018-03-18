@@ -122,7 +122,10 @@ header {
   padding: 7px;
   padding-left: 40px;
   border-radius: 30px;
-  color: rgba(0,0,0,0.4);
+  color: rgba(0,0,0,0.7);
+}
+::placeholder {
+  color: rgba(0,0,0,0.5);
 }
 li {
   font-family: Roboto;
@@ -306,7 +309,7 @@ ul {
 #more-stories-area {
   width: 65%;
   margin: auto;
-  margin-top: 1rem;
+  margin-top: 0.85rem;
   margin-bottom: 4rem;
   text-align: center;
 }
@@ -315,11 +318,40 @@ ul {
   font-family: prod-sans-reg;
   font-size: 0.9em;
   border-top: 3px solid #87a094;
-  border-bottom: 3px solid #87a094;
   box-sizing: border-box;
   padding-top:7px;
   padding-bottom: 7px;
   text-align: center;
+  margin-bottom: 1rem;
+}
+.moreTopArticle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  padding-top: 1rem;
+  padding-bottom: 0.95rem;
+  border-top: 1px solid #e0e0e0;
+}
+.moreTopArticleTitle {
+  display: block;
+  font-family: noe-bold;
+  font-size: 1.3rem;
+  margin-top: 0.3rem;
+}
+.moreTopArticleBody {
+  display: block;
+  font-family: prod-sans-reg;
+  font-size: 0.9em;
+  margin-top: 0.6rem;
+  width: 75%;
+}
+.moreTopArticleDate, .moreTopArticleAuthor {
+  display: inline-block;
+  font-family: prod-sans-reg;
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-top: 1rem;
 }
 
 
