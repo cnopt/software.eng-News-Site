@@ -63,6 +63,7 @@
   </div>
 
 
+
   <div id="top-three-area">
       <?php
         getTopThreeStoriesSQL();
@@ -75,6 +76,33 @@
       <div id="more-stories-title">More top stories</div>
       <?php
         getMoreTopStoriesSQL();
+      ?>
+  </div>
+
+
+
+  <div id="ent-cat-stories-area">
+      <div id="ent-cat-stories-title">In Entertainment</div>
+      <?php
+        getSmallEntStoriesSQL();
+      ?>
+  </div>
+
+
+
+  <div id="fash-cat-stories-area">
+      <div id="fash-cat-stories-title">In Fashion</div>
+      <?php
+        getSmallFashStoriesSQL();
+      ?>
+  </div>
+
+
+  <div id="visual-articles-title">Visual Articles</div>
+  <div id="visual-articles-area">
+
+      <?php
+        getVisualArticlesSQL();
       ?>
   </div>
 

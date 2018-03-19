@@ -118,10 +118,10 @@ function getMoreTopStoriesSQL() {
             while ($rowObj = $queryResult->fetchObject()) {
 
             $eTitle = $rowObj->articleTitle;
-            // $eTitle = (strlen($eTitle) > 60) ? substr($eTitle,0,58).'..' : $eTitle; // cut off titles that are extremely long
             $eSubtitle = $rowObj->articleSub;
             $eCategory = $rowObj->articleCat;
             $eBody = $rowObj->articleBody;
+            $eBody = (strlen($eBody) > 235) ? substr($eBody,0,233).'..' : $eBody; // cut off text that goes too long
             $eDate = $rowObj->articleDate;
             $eAuth = $rowObj->articleAuth;
 
@@ -133,6 +133,119 @@ function getMoreTopStoriesSQL() {
                        <span class='moreTopArticleBody'>$eBody</span>
                        <span class='moreTopArticleDate'>$eDate</span>
                        <span class='moreTopArticleAuthor'>$eAuth</span>
+             </div>";
+            }
+  }
+
+  $dbh = null;
+}
+
+
+
+
+function getSmallEntStoriesSQL() {
+
+  $hostname='localhost';
+  $username='unn_w15002812';
+  $password='RYNUZTYA';
+  $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $moreTopSQL = "SELECT articleTitle, articleSub, articleCat, articleAuth
+          FROM articles
+          ORDER BY articleDate DESC
+          LIMIT 1,3";
+
+          $queryResult = $dbh->prepare($moreTopSQL);
+          $queryResult->execute();
+
+  if ($dbh->query($moreTopSQL)) {
+            while ($rowObj = $queryResult->fetchObject()) {
+
+            $eTitle = $rowObj->articleTitle;
+            $eTitle = (strlen($eTitle) > 50) ? substr($eTitle,0,48).'..' : $eTitle; // cut off text that goes too long
+            $eSubtitle = $rowObj->articleSub;
+            $eAuth = $rowObj->articleAuth;
+
+
+             echo "<div class='smallEntArticle'>
+                       <span class='smallEntArticleTitle'>$eTitle</span>
+                       <span class='smallEntArticleSubtitle'>$eSubtitle</span>
+                       <span class='smallEntArticleAuthor'>$eAuth</span>
+             </div>";
+            }
+  }
+
+  $dbh = null;
+}
+
+
+
+
+function getSmallFashStoriesSQL() {
+
+  $hostname='localhost';
+  $username='unn_w15002812';
+  $password='RYNUZTYA';
+  $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $moreTopSQL = "SELECT articleTitle, articleSub, articleCat, articleAuth
+          FROM articles
+          ORDER BY articleDate DESC
+          LIMIT 1,3";
+
+          $queryResult = $dbh->prepare($moreTopSQL);
+          $queryResult->execute();
+
+  if ($dbh->query($moreTopSQL)) {
+            while ($rowObj = $queryResult->fetchObject()) {
+
+            $eTitle = $rowObj->articleTitle;
+            $eTitle = (strlen($eTitle) > 50) ? substr($eTitle,0,48).'..' : $eTitle; // cut off text that goes too long
+            $eSubtitle = $rowObj->articleSub;
+            $eAuth = $rowObj->articleAuth;
+
+
+             echo "<div class='smallFashArticle'>
+                       <span class='smallFashArticleTitle'>$eTitle</span>
+                       <span class='smallFashArticleSubtitle'>$eSubtitle</span>
+                       <span class='smallFashArticleAuthor'>$eAuth</span>
+             </div>";
+            }
+  }
+
+  $dbh = null;
+}
+
+
+
+
+function getVisualArticlesSQL() {
+
+  $hostname='localhost';
+  $username='unn_w15002812';
+  $password='RYNUZTYA';
+  $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $moreTopSQL = "SELECT articleTitle
+          FROM articles
+          ORDER BY articleDate DESC
+          LIMIT 1,4";
+
+          $queryResult = $dbh->prepare($moreTopSQL);
+          $queryResult->execute();
+
+  if ($dbh->query($moreTopSQL)) {
+            while ($rowObj = $queryResult->fetchObject()) {
+
+            $eTitle = $rowObj->articleTitle;
+            $eTitle = (strlen($eTitle) > 50) ? substr($eTitle,0,48).'..' : $eTitle; // cut off text that goes too long
+
+             echo "<div class='visualArticle'>
+                       <img src='http://via.placeholder.com/950x950' class='visualImg'>
+                       <span class='visualArticleTitle'>$eTitle</span>
              </div>";
             }
   }
