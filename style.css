@@ -518,6 +518,7 @@ ul {
 
 
 #subscribe-area {
+  position: relative;
   width: 65%;
   margin: auto;
   margin-top: 10rem;
@@ -538,6 +539,20 @@ ul {
   padding: 0.8rem;
   border-radius: 2px;
   width: 20rem;
+}
+#sub-submit {
+  font-family: roboto;
+  font-size: 0.9em;
+  border: none;
+  outline: none;
+  background-color: rgba(0,0,0,0.07);
+  color: rgba(0,0,0,0.6);
+  padding: 0.9rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+#sub-submit:hover {
+  background-color: rgba(0,0,0,0.1);
 }
 #sub-text {
   font-family: noe-reg;
@@ -738,6 +753,12 @@ footer {
   .topThreeArticleSubtitle {
     font-size: 1.1em;
   }
+  #subscribe-area {
+    width: 85%;
+  }
+  footer {
+    width: 85%;
+  }
 }
 
 @media screen and (max-width:1120px) {
@@ -776,6 +797,9 @@ footer {
   }
   #visual-articles-area {
     width: 91%;
+  }
+  #sub-email {
+    width: 14rem;
   }
 }
 
@@ -882,6 +906,18 @@ footer {
     margin-right: 1.25%;
     margin-bottom: 0.6%;
   }
+  form {
+    width: 35rem;
+  }
+  #sub-email {
+    width: 77%;
+  }
+  #sub-submit {
+    margin-top: 0.9rem;
+    width: 86%;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
 }
 
 
@@ -948,6 +984,45 @@ footer {
   .visualArticleTitle {
     font-size: 1.7em;
     bottom: 20px;
+  }
+  #subscribe-area {
+    margin-top: 5rem;
+    width: 93%;
+  }
+  form {
+    margin-top: 70px;
+    margin-bottom: 0.75rem;
+  }
+  #sub-text {
+    position: absolute;
+    top: 0;
+    margin-top: 1.2rem;
+  }
+  footer {
+    width: 93%;
+    margin-bottom: 2.2rem;
+  }
+  #footer-nav li:nth-of-type(1) {
+    display: none;
+  }
+  #footer-nav li {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width:600px) {
+  #subscribe-area {
+    display: block;
+  }
+  form {
+    width: 100%;
+  }
+  #sub-email {
+    width: 92.6%;
+  }
+  #sub-submit {
+    margin-top: 0.25em;
+    width: 100%;
   }
 }
 

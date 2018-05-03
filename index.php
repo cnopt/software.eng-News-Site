@@ -109,7 +109,10 @@
 
 
   <div id="subscribe-area">
-      <input type="email" id="sub-email" placeholder="Email address..">
+      <form>
+        <input type="email" id="sub-email" placeholder="Email address..">
+        <input type="submit" id="sub-submit">
+      </form>
       <p id="sub-text">Enter your email address to subscribe to our weekly newsletter.</p>
   </div>
 
@@ -145,7 +148,7 @@
 
           <li>
             <ul><strong>Careers</strong></ul>
-            <ul>Join us!</ul>
+            <ul>Join Heroic Halibuts</ul>
           </li>
       </div>
 
