@@ -520,9 +520,9 @@ ul {
 #subscribe-area {
   width: 65%;
   margin: auto;
-  margin-top: 9rem;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
+  margin-top: 10rem;
+  border-top: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
   padding-top: 1rem;
   padding-bottom: 1rem;
   display: flex;
@@ -532,7 +532,7 @@ ul {
   display: inline-block;
   font-family: noe-reg;
   font-size: 1em;
-  border: 1px solid #222;
+  border: 1px solid #bbb;
   outline: none;
   color: rgba(0,0,0,0.95);
   padding: 0.8rem;
@@ -543,6 +543,33 @@ ul {
   font-family: noe-reg;
   color: #222;
   display: inline-block;
+}
+
+
+footer {
+  width: 65%;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+#footer-nav {
+  display: flex;
+  justify-content: space-between;
+  font-family: roboto;
+  font-size: 1em;
+  text-align: left;
+  line-height: 1;
+}
+#footer-nav li{
+  width: 27rem;
+}
+#footer-nav li ul {
+  display: block;
+  text-align: left;
+  padding: 0;
+  text-transform: capitalize;
+  color:rgba(0, 0, 0, 0.75);
 }
 
 

@@ -114,6 +114,44 @@
   </div>
 
 
+  <footer>
+
+      <div id="footer-nav">
+          <li>
+            <ul><strong>Site Navigation</strong></ul>
+            <ul>Politics</ul>
+            <ul>Society</ul>
+            <ul>Technology</ul>
+            <ul>Fashion</ul>
+            <ul>Entertainment</ul>
+            <ul>Sport</ul>
+          </li>
+
+          <li>
+            <ul><strong>Terms of Use</strong></ul>
+            <ul>Terms of Service</ul>
+            <ul>Privacy Policy</ul>
+            <ul>Discussion Policy</ul>
+            <ul>Ad choices</ul>
+          </li>
+
+          <li>
+            <ul><strong>Get in touch</strong></ul>
+            <ul>Help</ul>
+            <ul>Contact information</ul>
+            <ul>Advertise with us</ul>
+            <ul>News syndication</ul>
+          </li>
+
+          <li>
+            <ul><strong>Careers</strong></ul>
+            <ul>Join us!</ul>
+          </li>
+      </div>
+
+  </footer>
+
+
 
 
 
