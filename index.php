@@ -7,6 +7,7 @@
   <meta name="Charlie Biddiscombe" content="name">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
+  <meta name="theme-color" content="#cfdfd78a">
   <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,7 +32,19 @@
           <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem;cursor:pointer;"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
           <a href="index.php"><p id="title-text"><strong>Halibut</strong> News & Articles</p></a>
 
-          <input type="text" id="headerSearchBar" placeholder="Search..">
+        <form method="get" action="search.php">
+          <input type="text" id="headerSearchBar" name="headerSearchBar" placeholder="Search..">
+          <button id="headerSearchBtn" onclick="location.href = 'search.php'">button</button>
+          <script>
+            var input = document.getElementById("headerSearchBar");
+            input.addEventListener("keyup", function(event) {
+              event.preventDefault();
+              if (event.keyCode === 13) {
+                document.getElementById("headerSearchBtn").click();
+              }
+            });
+          </script>
+        </form>
 
           <li>
             <ul>Politics</ul>
@@ -109,7 +122,7 @@
 
 
   <div id="subscribe-area">
-      <form>
+      <form id="subForm">
         <input type="email" id="sub-email" placeholder="Email address..">
         <input type="submit" id="sub-submit">
       </form>

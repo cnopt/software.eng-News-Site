@@ -11,7 +11,7 @@
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
   <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="script.js" type="text/javascript"></script>
@@ -48,12 +48,54 @@
 
 
     <div id="retArticleArea">
-
         <?php
           retrieveVisualArticleSQL();
         ?>
-
     </div>
+
+
+    <div id="subscribe-area">
+        <form>
+          <input type="email" id="sub-email" placeholder="Email address..">
+          <input type="submit" id="sub-submit">
+        </form>
+        <p id="sub-text">Enter your email address to subscribe to our weekly newsletter.</p>
+    </div>
+    
+    <footer>
+        <div id="footer-nav">
+            <li>
+              <ul><strong>Site Navigation</strong></ul>
+              <ul>Politics</ul>
+              <ul>Society</ul>
+              <ul>Technology</ul>
+              <ul>Fashion</ul>
+              <ul>Entertainment</ul>
+              <ul>Sport</ul>
+            </li>
+
+            <li>
+              <ul><strong>Terms of Use</strong></ul>
+              <ul>Terms of Service</ul>
+              <ul>Privacy Policy</ul>
+              <ul>Discussion Policy</ul>
+              <ul>Ad choices</ul>
+            </li>
+
+            <li>
+              <ul><strong>Get in touch</strong></ul>
+              <ul>Help</ul>
+              <ul>Contact information</ul>
+              <ul>Advertise with us</ul>
+              <ul>News syndication</ul>
+            </li>
+
+            <li>
+              <ul><strong>Careers</strong></ul>
+              <ul>Join Heroic Halibuts</ul>
+            </li>
+        </div>
+    </footer>
 
 
 

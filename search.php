@@ -6,7 +6,7 @@
   <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>title</title>
+    <title>search</title>
   <meta name="Charlie Biddiscombe" content="name">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
@@ -37,6 +37,7 @@
 
           <input type="text" id="headerSearchBar" placeholder="Search..">
 
+
           <li>
             <ul>Politics</ul>
             <ul>Society</ul>
@@ -49,12 +50,13 @@
 
 
     <div id="retArticleArea">
-
         <?php
-          retrieveArticleSQL();
+          returnArticleSearchSQL();
         ?>
-
     </div>
+
+
+
 
     <div id="subscribe-area">
         <form>

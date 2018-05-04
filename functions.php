@@ -286,8 +286,8 @@ function retrieveArticleSQL() {
 
   echo "<span class='articleCategory'>$eCat</span>
         <span class='retArticleTitle'>$eTitle</span>
-        <span class='mainArticleAuthor' style='margin-left:0;margin-right:1rem'>$eAuthor</span>
-        <span class='mainArticleDate'>$eDate</span>
+        <span class='retArticleAuthor' style='margin-left:0;margin-right:1rem'>$eAuthor</span>
+        <span class='retArticleDate'>$eDate</span>
         <span class='retarticleFlavourText'>$eFlavourText</span>
         <span class='retarticleFullText'>$eFullText</span>
   ";
@@ -344,6 +344,41 @@ function retrieveVisualArticleSQL() {
   ";
 }
 
+
+
+
+
+function returnArticleSearchSQL() {
+  $searchTerm = $_GET['headerSearchBar'];
+
+  $hostname='localhost';
+  $username='unn_w15002812';
+  $password='RYNUZTYA';
+  $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $sqlQuery =   "SELECT articleID, articleTitle, articleDate, articleAuth
+                 FROM articles
+                 WHERE articleTitle LIKE '%$searchTerm%'";
+
+  $queryResult = $dbh->prepare($sqlQuery);
+  $queryResult->execute();
+
+  while ($rowObj = $queryResult->fetch(PDO::FETCH_OBJ)) {
+      $eTitle = $rowObj->articleTitle;
+      $eDate = $rowObj->articleDate;
+      $eAuthor = $rowObj->articleAuth;
+  }
+
+  echo "<p class='searchQuery'>Articles containing: <strong>$searchTerm</strong></p>";
+
+  echo "<div class='searchedArticle'>
+          <span class='searchedArticleTitle'>$eTitle</span>
+          <span class='searchedArticleDate'>$eDate</span>
+          <span class='searchedArticleAuthor'>$eAuthor</span>
+        </div>
+  ";
+}
 
 
 
