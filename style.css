@@ -1,3 +1,4 @@
+/* import all of the fonts used throughout the site */
 @font-face {
   font-family: 'prod-sans-reg';
   src: url(Product-Sans-Regular.ttf);
@@ -34,7 +35,7 @@
 
 /* just to see effects of media queries more smoothly lol */
 * {
-  transition: 0.55s;
+  /* transition: 0.55s; */
 }
 
 
@@ -42,7 +43,6 @@
 body {
   margin: 0;
 }
-
 
 a {
   color: black;
@@ -62,9 +62,14 @@ header {
 header a:hover {
   text-decoration: none !important;
 }
+header svg {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
 #sideNav {
   height: 100%;
-  width: 0;
+  width: 250px;
+  transform: translateX(-250px); /* hide the side nav bar by default */
   position: fixed;
   z-index: 1;
   top: 0;
@@ -76,7 +81,7 @@ header a:hover {
 }
 #sideNav a {
   display: block;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 1.1em;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
@@ -85,10 +90,17 @@ header a:hover {
   color: #111;
   text-decoration: none;
 }
+#sideNav a:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+#sideNav a:nth-of-type(1) {
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* removes the ugly blue highlight when mobile users click the X button */
+  -webkit-tap-highlight-color: transparent;
+}
 #sideNavSearchBar {
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 1em;
-  background: #e0e0e094 url(ic_search_black_24px.svg) no-repeat scroll 25px 17px;
+  background: #e0e0e094 url(ic_search_black_24px.svg) no-repeat scroll 25px 17px; /* search icon */
   background-size: 21px;
   color: rgba(0,0,0,0.4);
   padding: 18px;
@@ -97,7 +109,6 @@ header a:hover {
   outline: none;
   margin-top: 1.3rem;
   margin-bottom: 1.5rem;
-
   display: none;
 }
 .material-icons {
@@ -111,7 +122,7 @@ header a:hover {
   color: #4f4f4f !important;
 }
 #title-text {
-  font-family: 'prod-sans-reg';
+  font-family: 'prod-sans-reg', sans-serif;
   font-size: 1.2em;
   display: inline-block;
   vertical-align: super;
@@ -125,7 +136,7 @@ header a:hover {
   width: 290px;
   background: url(ic_search_black_24px.svg) no-repeat scroll 10px 7px;
   background-size: 18px;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.9em;
   margin: auto;
   margin-top: -2.7rem;
@@ -140,8 +151,11 @@ header a:hover {
 ::placeholder {
   color: rgba(0,0,0,0.5);
 }
+#headerSearchBtn {
+  display: none; /* hide the button, as the user presses enter */
+}
 li {
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-weight: 500;
   list-style-type: none;
   text-align: center;
@@ -150,6 +164,24 @@ li {
 ul {
   display: inline;
   font-size: 0.8em;
+}
+
+header li ul {
+  cursor: pointer;
+  position: relative;
+}
+header li ul::after {
+  display: none;
+  content: "";
+  position: absolute;
+  bottom: -19px;
+  left: 20px;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+}
+header li ul:hover::after {
+  display: block;
 }
 
 #bg {
@@ -175,12 +207,12 @@ ul {
   position: absolute;
   left: 0;
   top: -46px;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 1.05em;
   color: rgba(0,0,0,0.6);
 }
 .itn {
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   box-sizing: border-box;
   padding: 5px 13px;
   border-radius: 2px;
@@ -213,6 +245,7 @@ ul {
 }
 
 #main-article-left {
+  /* the 'main' article is seperated into two halves */
   display: inline-block;
   width: 35rem;
 }
@@ -230,28 +263,28 @@ ul {
   vertical-align: text-top;
 }
 .mainArticleTitle {
-  font-family: noe-bold;
+  font-family: noe-bold, serif;
   font-size: 2.6em;
   display: block;;
   text-transform: capitalize;
   line-height: 1.3;
 }
 .mainArticleSubtitle {
-  font-family: noe-reg;
+  font-family: noe-reg, serif;
   font-size: 1.6em;
   display: block;
   text-transform: capitalize;
   margin-top: 0.4rem;
 }
 .mainarticleFlavourText {
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 1.1em;
   line-height: 1.35;
   display: block;
 }
 .mainArticleDate {
   font-size: 0.8em;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   display: inline-block;
   margin-top: 1.5rem;
 }
@@ -259,7 +292,7 @@ ul {
   margin-left: 1.5rem;
   font-size: 0.8em;
   display: inline-block;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   text-transform: capitalize;
 }
 .topThreeArticle {
@@ -281,14 +314,14 @@ ul {
   text-transform: uppercase;
 }
 .topThreeArticleTitle {
-  font-family: noe-bold;
+  font-family: noe-bold, serif;
   font-size: 1.7em;
   display: block;
   text-transform: capitalize;
   line-height: 1.3;
 }
 .topThreeArticleSubtitle {
-  font-family: noe-reg-italic;
+  font-family: noe-reg-italic, serif;
   font-size: 1.3em;
   display: block;
   text-transform: capitalize;
@@ -297,20 +330,20 @@ ul {
   display: block;
   margin-top: 1.2rem;
   font-size: 0.9em;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   line-height: 1.35;
 }
 .topThreeArticleDate {
   margin-top: 1.5rem;
   font-size: 0.8em;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   display: inline-block;
 }
 .topThreeArticleAuthor {
   margin-left: 1.5rem;
   font-size: 0.8em;
   display: inline-block;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   text-transform: capitalize;
 }
 .topThreeArticle:nth-child(4) {
@@ -338,7 +371,7 @@ ul {
 #more-stories-title {
   display: inline-block;
   position: relative;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.9em;
   /* border-top: 3px solid #87a094; */
   box-sizing: border-box;
@@ -368,21 +401,21 @@ ul {
 }
 .moreTopArticleTitle {
   display: block;
-  font-family: noe-bold;
+  font-family: noe-bold, serif;
   text-transform: capitalize;
   font-size: 1.3rem;
   margin-top: 0.3rem;
 }
 .moreToparticleFlavourText {
   display: block;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.9em;
   margin-top: 0.6rem;
   width: 75%;
 }
 .moreTopArticleDate, .moreTopArticleAuthor {
   display: inline-block;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.6em;
   text-transform: capitalize;
   opacity: 0.7;
@@ -409,7 +442,7 @@ ul {
 #ent-cat-stories-title::before, #fash-cat-stories-title::before {
   content: "";
   position: absolute;
-  top: -8px;
+  top: -10px;
   left: 0px;
   width: 60px;
   height: 3px;
@@ -417,7 +450,7 @@ ul {
 }
 #ent-cat-stories-title, #fash-cat-stories-title {
   position: relative;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   text-align: left;
   -webkit-font-smoothing: antialiased;
   width: 12.5rem;
@@ -436,13 +469,13 @@ ul {
 }
 .smallEntArticleTitle, .smallFashArticleTitle {
   font-size: 0.9em;
-  font-family: prod-sans-bold;
+  font-family: prod-sans-bold, sans-serif;
   display: block;
   text-transform: capitalize;
 }
 .smallEntArticleSubtitle, .smallFashArticleSubtitle {
   display: block;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.9em;
   margin-top: 0.5rem;
   text-transform: capitalize;
@@ -451,7 +484,7 @@ ul {
   position: absolute;
   bottom: 10px;
   left: 20px;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.7em;
   opacity: 0.7;
   text-transform: capitalize;
@@ -479,7 +512,7 @@ ul {
 }
 #visual-articles-title {
   position: relative;
-  font-family: prod-sans-reg;
+  font-family: prod-sans-reg, sans-serif;
   font-size: 0.9em;
   box-sizing: border-box;
   padding-top:7px;
@@ -507,7 +540,7 @@ ul {
   width: 95%;
   bottom: 15px;
   left: 0;
-  font-family: prod-sans-bold;
+  font-family: prod-sans-bold, sans-serif;
   font-size: 1.2em;
   color:white;
   text-align: left;
@@ -531,7 +564,7 @@ ul {
 }
 #sub-email {
   display: inline-block;
-  font-family: noe-reg;
+  font-family: noe-reg, serif;
   font-size: 1em;
   border: 1px solid #bbb;
   outline: none;
@@ -541,7 +574,7 @@ ul {
   width: 20rem;
 }
 #sub-submit {
-  font-family: roboto;
+  font-family: roboto, sans-serif;
   font-size: 0.9em;
   border: none;
   outline: none;
@@ -555,7 +588,7 @@ ul {
   background-color: rgba(0,0,0,0.1);
 }
 #sub-text {
-  font-family: noe-reg;
+  font-family: noe-reg, serif;
   color: #222;
   display: inline-block;
 }
@@ -571,7 +604,7 @@ footer {
 #footer-nav {
   display: flex;
   justify-content: space-between;
-  font-family: roboto;
+  font-family: roboto, sans-serif;
   font-size: 1em;
   text-align: left;
   line-height: 1;
@@ -592,7 +625,7 @@ footer {
 
 
 
-@keyframes fadeIn {
+@keyframes fadeIn {  /* animation frames from fading in of articles */
 	0% {
     opacity: 0;
 		transform: translateY(24px);
@@ -602,33 +635,59 @@ footer {
 		transform: translateY(0);
 	}
 }
+@keyframes fadeLeft {  /* animation frames for fade-in-left */
+	0% {
+    opacity: 0;
+    transform: translateX(-37px);
+	}
+	100% {
+    opacity: 1;
+    transform: translateX(0);
+	}
+}
+
 #retArticleArea {
   width: 65%;
   margin: auto;
   margin-top: 9rem;
+  margin-bottom: 4rem;
 }
 .retArticleTitle {
-  font-family: noe-bold;
+  font-family: noe-bold, serif;
   font-size: 2.6em;
   display: block;;
   text-transform: capitalize;
   line-height: 1.3;
   width: 750px;
 }
+.retArticleDate {
+  font-size: 0.8em;
+  font-family: prod-sans-reg, sans-serif;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+.retArticleAuthor {
+  margin-left: 1.5rem;
+  font-size: 0.8em;
+  display: inline-block;
+  font-family: prod-sans-reg, sans-serif;
+  text-transform: capitalize;
+}
 .retarticleFlavourText {
   opacity: 0;
   animation-name: fadeIn;
-  animation-iteration-count: 1;
+  animation-iteration-count: 1; /* only play animation once */
   animation-timing-function: ease-in-out;
   animation-duration: 0.5s;
   animation-delay: 0.1s;
   animation-fill-mode: forwards;
-  font-family: prod-sans-italic;
+  font-family: roboto, sans-serif;
+  font-weight: 300;
   display: block;
   margin-top: 3.3rem;
   font-size: 1.3em;
   width: 850px;
-  line-height: 1.3;
+  line-height: 1.7;
 }
 .retarticleFullText {
   opacity: 0;
@@ -638,13 +697,14 @@ footer {
   animation-duration: 0.5s;
   animation-delay: 0.25s;
   animation-fill-mode: forwards;
-  font-family: prod-sans-reg;
+  font-family: roboto, sans-serif;
   display: block;
   margin-top: 6rem;
-  font-size: 1.2em;
+  font-size: 1em;
   width: 850px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
+
 
 
 .retVisualArticleImg {
@@ -665,9 +725,122 @@ footer {
   animation-delay: 0.1s;
   animation-fill-mode: forwards;
   font-size: 0.9em;
-  font-family: prod-sans-reg;
+  font-family: roboto, sans-serif;
+  font-weight: 300;
+  line-height: 1.4;
   margin-bottom: 5rem;
 }
+
+
+.searchQuery {
+  font-size: 1.4em;
+  font-family: prod-sans-reg, sans-serif;
+  margin-bottom: 4rem;
+}
+.searchedArticle {
+  opacity: 0;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid #bbb;
+  margin-bottom: 2rem;
+  padding-bottom: 20px;
+}
+/* all of these nth-of-type selectors mean that each article returned has a slight delay longer than the visual-articles-title
+creating a nice ripple effect using only css. even the 6th one likely wont be visible so theres no need to do any more */
+.searchedArticle:nth-of-type(2) {
+  animation-delay: 0.22s;
+  -webkit-animation-delay: 0.22s;
+}
+.searchedArticle:nth-of-type(3) {
+  animation-delay: 0.44s;
+  -webkit-animation-delay: 0.44s;
+}
+.searchedArticle:nth-of-type(4) {
+  animation-delay: 0.66s;
+  -webkit-animation-delay: 0.66s;
+}
+.searchedArticle:nth-of-type(5) {
+  animation-delay: 0.88s;
+  -webkit-animation-delay: 0.88s;
+}
+.searchedArticle:nth-of-type(6) {
+  animation-delay: 1.02s;
+  -webkit-animation-delay: 1.02s;
+}
+.searchedArticleTitle {
+  font-size: 2.5em;
+  width: 800px;
+  font-family: noe-bold, serif;
+  text-transform: capitalize;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+.searchedArticleDate, .searchedArticleAuthor {
+  display: inline-block;
+  font-size: 0.9em;
+  font-family: prod-sans-reg, sans-serif;
+  text-transform: capitalize;
+  margin-right: 1rem;
+}
+
+
+#filterDiv {
+  opacity: 0;
+  animation-name: fadeLeft;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.38s;
+  animation-fill-mode: forwards;
+  margin: auto;
+  margin-top: -3.5rem;
+  margin-bottom: 1.5rem;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+#filterDiv p {
+  display: inline-block;
+  font-family: prod-sans-reg, sans-serif;
+  font-size: 1.2em;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 12px;
+  padding-right: 17px;
+  color: rgba(0,0,0,0.65);
+  background-color: rgba(0, 0, 0, 0.07);
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+.filter {
+  font-size: 1.4em;
+  cursor: pointer;
+  padding-right: 0.9rem;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+#filterDiv > a > p:hover {
+  background-color: #c7000038;
+  cursor: pointer;
+}
+#filterDiv > a >p:active {
+  background-color: #c7000038;
+}
+#filterDiv > a > p:hover > .filter {
+  color:#b90000a1;
+}
+
+/* .filter:hover {
+  color: #b90000a1;
+}
+.filter:hover < p {
+  background-color: #c7000045;
+} */
 
 
 
@@ -720,6 +893,7 @@ footer {
   }
 }
 
+
 @media screen and (max-width: 1450px) {
   .topThreeArticle {
     width: 18.5rem;
@@ -729,6 +903,7 @@ footer {
     font-size: 1.4em;
   }
 }
+
 
 @media screen and (max-width:1400px) {
   #main-article-area, #top-three-area, #more-stories-area, #ent-cat-stories-area, #fash-cat-stories-area {
@@ -741,6 +916,7 @@ footer {
     width: 25rem;
   }
 }
+
 
 @media screen and (max-width:1200px) {
   .topThreeArticle {
@@ -760,6 +936,7 @@ footer {
     width: 85%;
   }
 }
+
 
 @media screen and (max-width:1120px) {
   #top-three-area {
@@ -801,6 +978,9 @@ footer {
   #sub-email {
     width: 14rem;
   }
+.searchedArticleTitle {
+  width: 100%;
+}
 }
 
 
@@ -850,6 +1030,9 @@ footer {
   #in-the-news {
     padding-bottom: 1rem;
   }
+  #main-article-area {
+    margin-top: 1.2rem;
+  }
   #main-article-area, #more-stories-area, #ent-cat-stories-area, #fash-cat-stories-area {
     width: 88%;
   }
@@ -870,23 +1053,33 @@ footer {
   }
   .mainArticleTitle {
     font-size: 2.45em;
+      margin-top: 9px;
   }
   .topThreeArticle:nth-child(odd) {
     padding-right: 4.5%;
   }
   .topThreeArticle:nth-child(even) {
-    padding-left: 4.7%;
+    padding-left: 4.95%;
   }
   .topThreeArticle:nth-child(1), .topThreeArticle:nth-child(2) {
     margin-bottom: 1rem;
   }
+  .topThreeArticle:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 102%;
+    height: 17px;
+    background-color: white;
+  }
   .topThreeArticle:nth-child(3), .topThreeArticle:nth-child(4) {
+    position: relative;
     margin-top: 0.2rem;
     padding-top: 1rem;
     border-top: 1px solid #e0e0e0;
   }
   .topThreeArticleTitle {
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
   }
   .topThreeArticleSubtitle {
     display: none;
@@ -906,7 +1099,7 @@ footer {
     margin-right: 1.25%;
     margin-bottom: 0.6%;
   }
-  form {
+  #subForm {
     width: 35rem;
   }
   #sub-email {
@@ -918,13 +1111,20 @@ footer {
     padding-top: 0.4rem;
     padding-bottom: 0.4rem;
   }
+  #retArticleArea {
+    width: 90%;
+    margin-top: 6.3rem;
+  }
+  .retArticleTitle {
+    width: 100%;
+  }
 }
 
 
-
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 750px) { /* this is mobile territory from here on out */
   header {
     position: fixed;
+    top: 0;
     width: 100%;
   }
   #bg {
@@ -945,6 +1145,13 @@ footer {
   .moreTopImg {
     padding-bottom: 2rem;
   }
+  #ent-cat-stories-area {
+    margin-top: -0.5rem;
+  }
+  #ent-cat-stories-title, #fash-cat-stories-title {
+    font-size: 1.2em;
+      margin-bottom: 1.1rem;
+  }
   .smallEntArticle, .smallFashArticle {
     width: 46%;
     margin-right: 4%;
@@ -952,6 +1159,66 @@ footer {
   .smallEntArticle:nth-of-type(4), .smallFashArticle:nth-of-type(4) {
     width: 96%;
     margin-top: 1rem;
+  }
+  #visual-articles-title:before {
+    margin-left:27px;
+  }
+  #visual-articles-title {
+    font-size: 1.2em;
+    margin-top: 4rem;
+  }
+  #visual-articles-area {
+    margin-top: -0.15rem;
+  }
+  #retArticleArea {
+    margin-bottom: 6.2rem;
+  }
+  .retArticleTitle {
+    margin-top: 13px;
+    line-height: 1.2;
+  }
+  .retarticleFlavourText {
+    margin-top: 2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .retarticleFlavourText::after {
+    content: "";
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    width: 60%;
+    height: 1px;
+    background-color: #ededed;
+  }
+  .retarticleFullText {
+    margin-top: 3.5rem;
+  }
+  .retVisualArticleImg {
+    width: 100vw;
+    margin-left: -5.6%;
+  }
+  .retVisualArticleImg:nth-of-type(1) {
+    margin-top: 3rem !important;
+  }
+  .retVisualArticleText {
+    margin-bottom: 3rem;
+  }
+  #filterDiv {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+  #filterDiv p {
+    font-size: 1em;
+  }
+  .searchedArticle {
+    padding-bottom: 15px;
+  }
+  .searchedArticleTitle {
+    font-size: 1.8em;
+    margin-bottom: 0.8rem;
+  }
+
   }
 }
 
@@ -989,7 +1256,7 @@ footer {
     margin-top: 5rem;
     width: 93%;
   }
-  form {
+  #subForm {
     margin-top: 70px;
     margin-bottom: 0.75rem;
   }
@@ -1011,10 +1278,20 @@ footer {
 }
 
 @media screen and (max-width:600px) {
+  .topThreeArticleTitle {
+      height: 95px;
+  }
+  .topThreeArticleAuthor {
+      display: none;
+  }
+  .articleCategory {
+      font-size: 0.8em;
+      padding: 1px 2px 0;
+  }
   #subscribe-area {
     display: block;
   }
-  form {
+  #subForm {
     width: 100%;
   }
   #sub-email {
@@ -1038,4 +1315,17 @@ footer {
     font-size: 0.8em;
     padding: 3px 11px;
   }
+  .moreTopArticle {
+      height: 183px;
+  }
+  .moreToparticleFlavourText {
+      display: none;
+  }
+}
+
+
+@media screen and (max-width: 430px) {
+    .moreTopArticleAuthor {
+        display: none;
+    }
 }

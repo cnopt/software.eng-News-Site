@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>title</title>
+    <title>Halibut News & Articles</title>
   <meta name="Charlie Biddiscombe" content="name">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
@@ -19,14 +19,16 @@
 
     <header>
           <div id="sideNav">
-            <a href="javascript:void(0)" class="closebtn" onclick="hideNav()">&times;</a>
-            <input type="text" id="sideNavSearchBar" placeholder="Search..">
-            <a href="#"><i class="material-icons">&#xE84F;</i> Politics</a>
-            <a href="#"><i class="material-icons">&#xE84E;</i> Society</a>
-            <a href="#"><i class="material-icons">&#xE1E0;</i> Technology</a>
-            <a href="#"><i class="material-icons">&#xE8F8;</i> Fashion</a>
-            <a href="#"><i class="material-icons">&#xE8DA;</i> Entertainment</a>
-            <a href="#"><i class="material-icons">&#xEB45;</i> Sport</a>
+            <form method="get" action="search.php">
+              <a href="javascript:void(0)" class="closebtn" onclick="hideNav()">&times;</a>
+              <input type="text" id="sideNavSearchBar" name="sideNavSearchBar" placeholder="Search..">
+            </form>
+            <a href="/soft-eng/politics"><i class="material-icons">&#xE84F;</i> Politics</a>
+            <a href="/soft-eng/society"><i class="material-icons">&#xE84E;</i> Society</a>
+            <a href="/soft-eng/technology"><i class="material-icons">&#xE1E0;</i> Technology</a>
+            <a href="/soft-eng/fashion"><i class="material-icons">&#xE8F8;</i> Fashion</a>
+            <a href="/soft-eng/entertainment"><i class="material-icons">&#xE8DA;</i> Entertainment</a>
+            <a href="/soft-eng/sport"><i class="material-icons">&#xEB45;</i> Sport</a>
           </div>
 
           <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem;cursor:pointer;"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
@@ -35,26 +37,26 @@
         <form method="get" action="search.php">
           <input type="text" id="headerSearchBar" name="headerSearchBar" placeholder="Search..">
           <button id="headerSearchBtn" onclick="location.href = 'search.php'">button</button>
-          <script>
-            var input = document.getElementById("headerSearchBar");
-            input.addEventListener("keyup", function(event) {
-              event.preventDefault();
-              if (event.keyCode === 13) {
-                document.getElementById("headerSearchBtn").click();
-              }
-            });
-          </script>
         </form>
 
           <li>
-            <ul>Politics</ul>
-            <ul>Society</ul>
-            <ul>Technology</ul>
-            <ul>Fashion</ul>
-            <ul>Entertainment</ul>
-            <ul>Sport</ul>
+            <a href="/soft-eng/politics"><ul>Politics</ul></a>
+            <a href="/soft-eng/society"><ul>Society</ul></a>
+            <a href="/soft-eng/technology"><ul>Technology</ul></a>
+            <a href="/soft-eng/fashion"><ul>Fashion</ul></a>
+            <a href="/soft-eng/entertainment"><ul>Entertainment</ul></a>
+            <a href="/soft-eng/sport"><ul>Sport</ul></a>
           </li>
     </header>
+
+    <script>
+//      $(document).ready(function(){
+//        $(".technology-link").click(function(){
+//          $("#textarea").before("<div id='filterDiv'><a href='index.php'><p><i class='material-icons filter'>remove_circle_outline</i>Technology</p></a></div>");
+//          $("#textarea").load("technology.php");
+//        });
+//      });
+    </script>
 
   <section id="bg">
     <section id="in-the-news">
@@ -68,56 +70,61 @@
     </section>
   </section>
 
-  <div id="main-article-area">
-      <?php
-        require_once 'functions.php';
-        getMainStorySQL();
-      ?>
-  </div>
+  <div id="textarea">
+
+      <div id="main-article-area">
+          <?php
+            require_once 'functions.php';
+            getMainStorySQL();
+          ?>
+      </div>
 
 
 
-  <div id="top-three-area">
-      <?php
-        getTopThreeStoriesSQL();
-      ?>
-  </div>
+      <div id="top-three-area">
+          <?php
+            getTopThreeStoriesSQL();
+          ?>
+      </div>
 
 
 
-  <div id="more-stories-area">
-      <div id="more-stories-title">More top stories</div>
-      <?php
-        getMoreTopStoriesSQL();
-      ?>
-  </div>
+      <div id="more-stories-area">
+          <div id="more-stories-title">More top stories</div>
+          <?php
+            getMoreTopStoriesSQL();
+          ?>
+      </div>
 
 
 
-  <div id="ent-cat-stories-area">
-      <div id="ent-cat-stories-title">In Entertainment</div>
-      <?php
-        getSmallEntStoriesSQL();
-      ?>
-  </div>
+      <div id="ent-cat-stories-area">
+          <div id="ent-cat-stories-title">In Entertainment</div>
+          <?php
+            getSmallEntStoriesSQL();
+          ?>
+      </div>
 
 
 
-  <div id="fash-cat-stories-area">
-      <div id="fash-cat-stories-title">In Fashion</div>
-      <?php
-        getSmallFashStoriesSQL();
-      ?>
-  </div>
+      <div id="fash-cat-stories-area">
+          <div id="fash-cat-stories-title">In Fashion</div>
+          <?php
+            getSmallFashStoriesSQL();
+          ?>
+      </div>
 
 
 
-  <div id="visual-articles-title">Visual Articles</div>
-  <div id="visual-articles-area">
-      <?php
-        getVisualArticlesSQL();
-      ?>
-  </div>
+      <div id="visual-articles-title">Visual Articles</div>
+      <div id="visual-articles-area">
+          <?php
+            getVisualArticlesSQL();
+          ?>
+      </div>
+
+
+</div>
 
 
 

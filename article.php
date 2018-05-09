@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <?php
+
+  // This is the only time in which embedded PHP is necessary, and functions.php
+  // alone will not suffice. This is because the database needs to be queried
+  // inside the document, and before anything else, so that the
+  // page title can be set dynamically.
+
   require_once 'functions.php';
+
+  $articleID = isset($_REQUEST['articleID']) ? ($_REQUEST['articleID']) : null;
+  $pageTitle = isset($_REQUEST['articleTitle']) ? ($_REQUEST['articleTitle']) : null;
+
+  $hostname='localhost';
+  $username='unn_w15002812';
+  $password='RYNUZTYA';
+  $dbh = new PDO("mysql:host=$hostname;dbname=unn_w15002812",$username,$password);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+  $sqlQuery =   "SELECT *
+                 FROM articles
+                 WHERE articleID = $articleID";
+
+  $queryResult = $dbh->prepare($sqlQuery);
+  $queryResult->execute();
+
+  while ($rowObj = $queryResult->fetch(PDO::FETCH_OBJ)) {
+      $eID = $rowObj->articleID;
+      $eTitle = $rowObj->articleTitle;
+      $eSubtitle = $rowObj->articleSub;
+      $eCat = $rowObj->articleCat;
+      $eDate = $rowObj->articleDate;
+      $eAuthor = $rowObj->articleAuth;
+      $eFlavourText = $rowObj->articleFlavourText;
+      $eFullText = $rowObj->articleFullText;
+    }
 ?>
+
 <html>
   <head>
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>title</title>
+    <title> <?php echo $eTitle ?> </title>
   <meta name="Charlie Biddiscombe" content="name">
   <meta name="description" content="description here">
   <meta name="keywords" content="keywords,here">
@@ -21,29 +55,34 @@
   <body>
 
     <header>
-          <div id="sideNav">
-            <a href="javascript:void(0)" class="closebtn" onclick="hideNav()">&times;</a>
-            <input type="text" id="sideNavSearchBar" placeholder="Search..">
-            <a href="#"><i class="material-icons">&#xE84F;</i> Politics</a>
-            <a href="#"><i class="material-icons">&#xE84E;</i> Society</a>
-            <a href="#"><i class="material-icons">&#xE1E0;</i> Technology</a>
-            <a href="#"><i class="material-icons">&#xE8F8;</i> Fashion</a>
-            <a href="#"><i class="material-icons">&#xE8DA;</i> Entertainment</a>
-            <a href="#"><i class="material-icons">&#xEB45;</i> Sport</a>
-          </div>
+      <div id="sideNav">
+        <form method="get" action="search.php">
+          <a href="javascript:void(0)" class="closebtn" onclick="hideNav()">&times;</a>
+          <input type="text" id="sideNavSearchBar" name="sideNavSearchBar" placeholder="Search..">
+        </form>
+        <a href="/soft-eng/politics"><i class="material-icons">&#xE84F;</i> Politics</a>
+        <a href="/soft-eng/society"><i class="material-icons">&#xE84E;</i> Society</a>
+        <a href="/soft-eng/technology"><i class="material-icons">&#xE1E0;</i> Technology</a>
+        <a href="/soft-eng/fashion"><i class="material-icons">&#xE8F8;</i> Fashion</a>
+        <a href="/soft-eng/entertainment"><i class="material-icons">&#xE8DA;</i> Entertainment</a>
+        <a href="/soft-eng/sport"><i class="material-icons">&#xEB45;</i> Sport</a>
+      </div>
 
           <svg onclick="showNav()" width="24px" height="24px" viewBox="0 0 48 48" style="padding-left:1.5rem;cursor:pointer;"><path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"></path></svg>
           <a href="index.php"<p id="title-text"><strong>Halibut</strong> News & Articles</p></a>
 
-          <input type="text" id="headerSearchBar" placeholder="Search..">
+          <form method="get" action="search.php">
+            <input type="text" id="headerSearchBar" name="headerSearchBar" placeholder="Search..">
+            <button id="headerSearchBtn" onclick="location.href = 'search.php'">button</button>
+          </form>
 
           <li>
-            <ul>Politics</ul>
-            <ul>Society</ul>
-            <ul>Technology</ul>
-            <ul>Fashion</ul>
-            <ul>Entertainment</ul>
-            <ul>Sport</ul>
+            <a href="/soft-eng/politics"><ul>Politics</ul></a>
+            <a href="/soft-eng/society"><ul>Society</ul></a>
+            <a href="/soft-eng/technology"><ul>Technology</ul></a>
+            <a href="/soft-eng/fashion"><ul>Fashion</ul></a>
+            <a href="/soft-eng/entertainment"><ul>Entertainment</ul></a>
+            <a href="/soft-eng/sport"><ul>Sport</ul></a>
           </li>
     </header>
 
@@ -51,7 +90,7 @@
     <div id="retArticleArea">
 
         <?php
-          retrieveArticleSQL();
+          retrieveArticleSQL(); // call to the retrieve article function, place inside this div
         ?>
 
     </div>
